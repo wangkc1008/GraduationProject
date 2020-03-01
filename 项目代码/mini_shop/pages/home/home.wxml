@@ -1,0 +1,49 @@
+<import src="../tpls/products/products-tpl.wxml"/>
+<view class="container home-container" hidden="{{!loadingHidden}}">
+    <swiper indicator-dots="true" autoplay="true" class="swiper">
+        <block wx:for="{{bannerArr}}">
+            <swiper-item class="banner-item" bindtap="onProductsItemTap" data-id="{{item.key_word}}">
+                <image class="item-image" src="{{item.img.url}}" mode="aspectFill" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <view style='margin-top:30rpx;text-align: center;'>
+      <image src="/imgs/images/honor20.jpg" style='height:80rpx'></image>
+    </view>
+    <view class="home-main">
+        <view class="home-main-theme">
+            <view class="home-main-header">主题商城</view>
+            <view class="theme-box">
+                <block wx:for="{{themeArr}}">
+                    <view class="theme-item" bindtap="onThemesItemTap" data-id="{{item.id}}" data-name="{{item.name}}">
+                        <image src="{{item.topic_img.url}}"></image>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <block>
+        <view style='margin-top:30rpx'>
+          <view class="home-main-header">优选入口</view>
+          <view style='margin-left:20rpx'>
+            <image src="/imgs/images/product_oppo_findx.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="32" bindtap="onProductsItemTap"></image>
+            <image src="/imgs/images/product_iphone_X.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="24" bindtap="onProductsItemTap"></image>
+            <image src="/imgs/images/product_huawei_P30.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="15" bindtap="onProductsItemTap"></image>
+            <image src="/imgs/images/product_xiaomi_Mix3.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="12" bindtap="onProductsItemTap"></image>
+          </view>
+          <view style='margin-left:20rpx'>
+           <image src="/imgs/images/product_oppo_r17.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="33" bindtap="onProductsItemTap"></image>
+            <image src="/imgs/images/product_iphone_XS.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="23" bindtap="onProductsItemTap"></image>
+            <image src="/imgs/images/product_xiaomi_hand.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="14" bindtap="onProductsItemTap"></image>
+            <image src="/imgs/images/product_iphone_iPadPro2018.png"  mode="aspectFill" style='height: 180rpx;width: 180rpx;border-radius: 180rpx;' data-id="28" bindtap="onProductsItemTap"></image>
+          </view>
+        </view>
+        </block>
+        <view class="home-main-products">
+            <view class="home-main-header">猜你喜欢</view>
+            <template is="products" data="{{productsArr:productsArr}}"/>
+        </view>
+    </view>
+</view>
+<loading hidden="{{loadingHidden}}">
+    加载中...
+</loading>
